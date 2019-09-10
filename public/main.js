@@ -1,13 +1,13 @@
 function runRouletteAnimation(people, index, finalSelection, numCycles) {
-    const cycles = numCycles === null ? 1 : numCycles;
+    const cyclesLeft = numCycles === null ? 1 : numCycles;
     const person = people[index];
     person.classList.add('selected');
     window.setTimeout(() => {
         person.classList.remove('selected');
         if (index < people.length - 1) {
-            runRouletteAnimation(people, index + 1, finalSelection, cycles);
-        } else if (cycles > 0) {
-            runRouletteAnimation(people, 0, finalSelection, cycles - 1);
+            runRouletteAnimation(people, index + 1, finalSelection, cyclesLeft);
+        } else if (cyclesLeft > 1) {
+            runRouletteAnimation(people, 0, finalSelection, cyclesLeft - 1);
         } else {
             finalSelection.classList.add('selected');
         }
