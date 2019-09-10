@@ -29,7 +29,6 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 app.get('/', (req, res) => {
     const people = loadPeopleFromFile('./people.txt');
-    console.log(people)
     const peopleEntries = people.map((person) => ({ name: person }));
     const randomPersonIndex = pickRandomInteger(peopleEntries.length);
     peopleEntries[randomPersonIndex].selected = true;

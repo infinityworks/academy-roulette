@@ -1,20 +1,27 @@
-function highlightPeople(people, index, selectedPerson) {
+function runRouletteAnimation(people, index, finalSelection, numCycles) {
+    const cycles = numCycles === null ? 1 : numCycles;
     const person = people[index];
     person.classList.add('selected');
     window.setTimeout(() => {
         person.classList.remove('selected');
         if (index < people.length - 1) {
-            highlightPeople(people, index + 1, selectedPerson)
+            runRouletteAnimation(people, index + 1, finalSelection, cycles);
+        } else if (cycles > 0) {
+            runRouletteAnimation(people, 0, finalSelection, cycles - 1);
         } else {
-            selectedPerson.classList.add('selected');
+            finalSelection.classList.add('selected');
         }
     }, 100);
 }
 
 function roulette() {
-    const selectedPerson = document.querySelector('li[data-selected]');
+    const finalSelection = document.querySelector('li[data-selected]');
+    const currentSelection = document.querySelector('.selected');
+    if (currentSelection) {
+        currentSelection.classList.remove('selected');
+    }
     const people = document.getElementById('people-list').querySelectorAll('li');
-    highlightPeople(people, 0, selectedPerson);
+    runRouletteAnimation(people, 0, finalSelection, 2);
 }
 
 const goButton = document.querySelector('#go-button');
