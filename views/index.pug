@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        link(rel='stylesheet' href='/main.css')
+    body
+        div(class='content')
+            div(class='content-body')
+                ul(id='people-list' class='people-list')
+                    each person in people
+                        if person.selected
+                            li(class='name' data-selected)= person.name
+                        else
+                            li(class='name')= person.name
+                button(id="go-button" class="go-button") GO
+        script(src='/main.js')

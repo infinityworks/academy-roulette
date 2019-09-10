@@ -1,0 +1,14 @@
+{
+    "name": "academy-picker",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.16.1",
+        "pug": "^2.0.0"
+    },
+    "devDependencies": {}
+}
