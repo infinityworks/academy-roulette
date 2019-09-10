@@ -17,6 +17,7 @@
 
 .name.selected {
     background-color: green;
+    color: white;
 }
 
 .go-button {
