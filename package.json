@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
+        "check": "npm run lint",
         "lint": "eslint index.js"
     },
     "author": "",

@@ -1,5 +1,4 @@
 const express = require('express');
-const pug = require('pug');
 const fs = require('fs');
 
 function pickRandomInteger(max) {
@@ -29,7 +28,7 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 app.get('/', (req, res) => {
     const people = loadPeopleFromFile('./people.txt');
-    const peopleEntries = people.map((person) => ({ name: person }));
+    const peopleEntries = people.map(person => ({ name: person }));
     const randomPersonIndex = pickRandomInteger(peopleEntries.length);
     peopleEntries[randomPersonIndex].selected = true;
     res.render('index', {
