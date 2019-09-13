@@ -21,10 +21,18 @@ function roulette() {
         currentSelection.classList.remove('selected');
     }
     const people = document.getElementById('people-list').querySelectorAll('li');
-    runRouletteAnimation(people, 0, finalSelection, 2);
+    playDrumRoll()
+    runRouletteAnimation(people, 0, finalSelection, 5);
 }
 
 const goButton = document.querySelector('#go-button');
 goButton.addEventListener('click', () => {
     roulette();
 });
+
+playDrumRoll = function () {
+    var audio = document.getElementById("drum_roll");
+    audio.load()
+    audio.loop = false;
+    audio.play(); 
+}
