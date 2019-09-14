@@ -1,6 +1,12 @@
 # User-defined
 people.txt
 
+# Packages
+node_modules/
+
+# Yarn
+yarn.lock
+
 # Logs
 logs
 *.log
