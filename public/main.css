@@ -12,6 +12,11 @@
 
 :root {
     --header-height: 120px;
+    --app-logo-margin: 7px;
+    --padding-header: 25px;
+    --iw-orange: #ED6B39;
+    --background-color-light: #EBEBEB;
+    --accent-color: var(--iw-orange);
 }
 
 html,
@@ -25,6 +30,11 @@ body {
 
 body {
     background: #1A1A1A;
+    font-family: 'Cera Pro';
+}
+
+body.light {
+    background: var(--background-color-light);
 }
 
 img {
@@ -32,20 +42,39 @@ img {
     max-height: 100%;
 }
 
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
+
 header {
     width: 100%;
     height: var(--header-height);
+    background: #131313;
 }
 
 header img {
     height: 100%;
 }
 
-.header__left {
-    --padding-header: 25px;
+header>div {
     padding: var(--padding-header);
     height: calc(100% - var(--padding-header) * 2);
-    display: flex;
+    display: inline-flex;
+}
+
+.header__left {
     margin-left: 10px;
 }
 
@@ -54,17 +83,31 @@ header img {
 }
 
 .app-logo {
-    --app-logo-margin: 7px;
     margin-top: var(--app-logo-margin);
     margin-bottom: var(--app-logo-margin);
     height: calc(100% - var(--app-logo-margin) * 2);
+}
+
+.header__right {
+    align-items: center;
+    float: right;
+    color: white;
+}
+
+.theme-button {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.theme-button .active {
+    color: var(--accent-color);
+    font-weight: 700;
 }
 
 .content {
     margin: auto;
     width: 80%;
     height: calc(100% - var(--header-height));
-    font-family: 'Cera Pro';
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -85,6 +128,7 @@ header img {
     padding: 20px;
     width: 130px;
     height: 130px;
+    border-radius: 5px;
     text-align: center;
     vertical-align: middle;
     box-shadow: 0px 7px 20px 1px #000;
@@ -96,7 +140,7 @@ header img {
 }
 
 .name.selected {
-    background-color: #ED6B39;
+    background-color: var(--accent-color);
     color: black;
     font-weight: 700;
     font-size: 3rem;
@@ -111,15 +155,22 @@ header img {
     background: #1A1A1A;
     color: white;
     font-size: 3em;
+    font-weight: 700;
     padding: 1% 5%;
     margin: 20px;
     cursor: pointer;
     transition: transform 400ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.go-button.light {
+    color: #1A1A1A;
+    border-color: #1A1A1A;
+    background-color: var(--background-color-light);
+}
+
 .go-button:active {
-    border-color: #ED6B39;
-    color: #ED6B39;
+    border-color: var(--iw-orange);
+    color: var(--iw-orange);
 }
 
 .go-button:hover {

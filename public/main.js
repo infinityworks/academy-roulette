@@ -43,3 +43,35 @@ playDrumRoll = function() {
     audio.loop = false;
     audio.play();
 }
+
+/* === Theme === */
+
+function toggle_theme() {
+    const body = document.getElementsByTagName('body')[0];
+    const light_selector = theme_button.querySelector('#light');
+    const dark_selector = theme_button.querySelector('#dark');
+
+    const root_style = document.documentElement.style
+
+    if (body.classList.contains('light')) {
+        body.classList.remove('light');
+        goButton.classList.remove('light');
+        light_selector.classList.remove('active');
+        dark_selector.classList.add('active');
+
+        root_style.setProperty('--accent-color', '#ED6B39');
+
+
+    } else {
+        body.classList.add('light');
+        goButton.classList.add('light');
+
+        dark_selector.classList.remove('active');
+        light_selector.classList.add('active');
+
+        root_style.setProperty('--accent-color', '#46D396');
+    }
+}
+
+const theme_button = document.getElementById('theme-button');
+theme_button.addEventListener('click', toggle_theme);
