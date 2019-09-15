@@ -124,7 +124,7 @@ header>div {
     color: white;
     list-style: none;
     background-color: #484B52;
-    margin: 40px 20px;
+    margin: 2% 1%;
     padding: 20px;
     width: 130px;
     height: 130px;
@@ -159,7 +159,12 @@ header>div {
     padding: 1% 5%;
     margin: 20px;
     cursor: pointer;
-    transition: transform 400ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 400ms cubic-bezier(0.19, 1, 0.22, 1), opacity 500ms cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.go-button:disabled {
+    opacity: 0.1;
+    cursor: unset;
 }
 
 .go-button.light {
@@ -173,7 +178,7 @@ header>div {
     color: var(--iw-orange);
 }
 
-.go-button:hover {
+.go-button:hover.go-button:not([disabled]) {
     transform: scale(1.1);
 }
 

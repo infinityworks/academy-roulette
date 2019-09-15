@@ -1,5 +1,3 @@
-let is_roulette_running = false;
-
 function runRouletteAnimation(people, index, finalSelection, numCycles) {
     const cyclesLeft = numCycles === null ? 1 : numCycles;
     const person = people[index];
@@ -11,13 +9,12 @@ function runRouletteAnimation(people, index, finalSelection, numCycles) {
             runRouletteAnimation(people, nextSelection, finalSelection, cyclesLeft - 1);
         } else {
             finalSelection.classList.add('selected');
-            is_roulette_running = false;
+            goButton.disabled = false;
         }
     }, 100);
 }
 
 function roulette() {
-    if (is_roulette_running) return;
 
     const finalSelection = document.querySelector('li[data-selected]');
     const currentSelection = document.querySelector('.selected');
@@ -26,7 +23,7 @@ function roulette() {
     }
     const people = document.getElementById('people-list').querySelectorAll('li');
 
-    is_roulette_running = true;
+    goButton.disabled = true;
     playDrumRoll()
     runRouletteAnimation(people, 0, finalSelection, 99);
 }
