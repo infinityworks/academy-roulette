@@ -10,7 +10,8 @@
 
 .name {
     list-style: none;
-    background-color: yellow;
+    background-color: #484B52;
+    margin: 2% 1%;
     padding: 20px;
     border: 1px solid black;
 }
@@ -25,5 +26,34 @@
     height: 4rem;
     background-color: blue;
     color: white;
-    border: 1px solid black;
+    font-size: 3em;
+    font-weight: 700;
+    padding: 1% 5%;
+    margin: 20px;
+    cursor: pointer;
+    transition: transform 400ms cubic-bezier(0.19, 1, 0.22, 1), opacity 500ms cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.go-button:disabled {
+    opacity: 0.1;
+    cursor: unset;
+}
+
+.go-button.light {
+    color: #1A1A1A;
+    border-color: #1A1A1A;
+    background-color: var(--background-color-light);
+}
+
+.go-button:active {
+    border-color: var(--iw-orange);
+    color: var(--iw-orange);
+}
+
+.go-button:hover.go-button:not([disabled]) {
+    transform: scale(1.1);
+}
+
+.center-text {
+    text-align: center;
 }
