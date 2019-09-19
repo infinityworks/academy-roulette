@@ -10,17 +10,21 @@ function runRouletteAnimation(people, index, finalSelection, numCycles) {
             runRouletteAnimation(people, 0, finalSelection, cyclesLeft - 1);
         } else {
             finalSelection.classList.add('selected');
+            goButton.disabled = false;
         }
     }, 100);
 }
 
 function roulette() {
+
     const finalSelection = document.querySelector('li[data-selected]');
     const currentSelection = document.querySelector('.selected');
     if (currentSelection) {
         currentSelection.classList.remove('selected');
     }
     const people = document.getElementById('people-list').querySelectorAll('li');
+
+    goButton.disabled = true;
     playDrumRoll()
     runRouletteAnimation(people, 0, finalSelection, 5);
 }
@@ -68,3 +72,4 @@ function toggle_theme() {
 
 const theme_button = document.getElementById('theme-button');
 theme_button.addEventListener('click', toggle_theme);
+
