@@ -4,10 +4,9 @@ function runRouletteAnimation(people, index, finalSelection, numCycles) {
     person.classList.add('selected');
     window.setTimeout(() => {
         person.classList.remove('selected');
-        if (index < people.length - 1) {
-            runRouletteAnimation(people, index + 1, finalSelection, cyclesLeft);
-        } else if (cyclesLeft > 1) {
-            runRouletteAnimation(people, 0, finalSelection, cyclesLeft - 1);
+        if (cyclesLeft > 0) {
+            const nextSelection = Math.floor(Math.random() * (people.length - 1))
+            runRouletteAnimation(people, nextSelection, finalSelection, cyclesLeft - 1);
         } else {
             finalSelection.classList.add('selected');
             goButton.disabled = false;
@@ -26,7 +25,7 @@ function roulette() {
 
     goButton.disabled = true;
     playDrumRoll()
-    runRouletteAnimation(people, 0, finalSelection, 5);
+    runRouletteAnimation(people, 0, finalSelection, 99);
 }
 
 const goButton = document.querySelector('#go-button');
@@ -34,8 +33,10 @@ goButton.addEventListener('click', () => {
     roulette();
 });
 
+
 playDrumRoll = function() {
-    var audio = document.getElementById("drum_roll");
+    const audio = document.getElementById("drum_roll");
+
     audio.load()
     audio.loop = false;
     audio.play();
