@@ -2,14 +2,26 @@ doctype html
 html
     head
         link(rel='stylesheet' href='/main.css')
+        meta(charset="utf-8")
+        title="IW Academy Roulette"
+        meta(name="viewport" content="width=device-width, initial-scale=1")
     body
-        <audio id = "drum_roll">
-            <source src="drum_roll.mp3" type="audio/mpeg">
+        header
+            div(class='header__left') 
+                img(src='iw_logo.png')
+                img(class='app-logo' src='app_logo.png')
+            div(class='header__right') 
+                div(id='theme-button' class='theme-button noselect')
+                    span(id='dark' class='active') I 
+                    span \ 
+                    span(id='light') W 
+        audio(id = "drum_roll")
+            source(src="drum_roll.mp3" type="audio/mpeg")
             Your browser does not support the audio element.
-        </audio>
+        
         div(class='content')
-            div(class='content-body')
-                ul(id='people-list' class='people-list')
+            div(class='content-body center-text')
+                ul(id='people-list' class='people-list')        
                     each person in people
                         if person.selected
                             li(class='name' data-selected)= person.name
