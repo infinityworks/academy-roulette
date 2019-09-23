@@ -10,6 +10,8 @@ function runRouletteAnimation(people, index, finalSelection, numCycles) {
         } else {
             finalSelection.classList.add('selected');
             goButton.disabled = false;
+            const audio = document.getElementById("drum_roll");
+            audio.pause();
         }
     }, 100);
 }
@@ -24,8 +26,8 @@ function roulette() {
     const people = document.getElementById('people-list').querySelectorAll('li');
 
     goButton.disabled = true;
-    playDrumRoll()
-    runRouletteAnimation(people, 0, finalSelection, 99);
+    playDrumRoll();
+    runRouletteAnimation(people, 0, finalSelection, 25);
 }
 
 const goButton = document.querySelector('#go-button');
