@@ -28,12 +28,16 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 app.get('/', (req, res) => {
     const people = loadPeopleFromFile('./people.txt');
-    const peopleEntries = people.map(person => ({ name: person }));
-    const randomPersonIndex = pickRandomInteger(peopleEntries.length);
-    peopleEntries[randomPersonIndex].selected = true;
-    res.render('index', {
-        people: peopleEntries,
-    });
+    if (people.length === 0) {
+        res.render('error');
+    } else {
+        const peopleEntries = people.map(person => ({ name: person }));
+        const randomPersonIndex = pickRandomInteger(peopleEntries.length);
+        peopleEntries[randomPersonIndex].selected = true;
+        res.render('index', {
+            people: peopleEntries,
+        });
+    }
 });
 console.log('Listening on http://localhost:9001');
 app.listen(9001);
