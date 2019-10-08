@@ -187,3 +187,11 @@ header>div {
 .center-text {
     text-align: center;
 }
+
+.error_message {
+  color: white;
+}
+
+.hide {
+  display: none;
+}
