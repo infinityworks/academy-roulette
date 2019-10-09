@@ -20,6 +20,9 @@ html
             Your browser does not support the audio element.
         
         div(class='content')
+            span(class="center-text")
+                p(class="text-dark") Number of Cycles
+                input(type="number" id="animation-speed-input" value="25")
             div(class='content-body center-text')
                 ul(id='people-list' class='people-list')        
                     each person in people
