@@ -208,3 +208,7 @@ header>div {
 .text-dark{
     color: var(--accent-color)
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
