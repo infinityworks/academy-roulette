@@ -6,6 +6,7 @@ Pick a random person from a file containing a predefined list of people.
 
 * Node 8+
 * npm
+* seedrandom
 
 ## Setup
 

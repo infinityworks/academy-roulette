@@ -1,8 +1,11 @@
 const express = require('express');
 const fs = require('fs');
+const seedrandom = require('seedrandom');
+
 
 function pickRandomInteger(max) {
-    return Math.floor(Math.random() * Math.floor(max));
+    const rng = seedrandom();
+    return Math.floor(rng() * Math.floor(max));
 }
 
 function loadPeopleFromFile(filepath) {

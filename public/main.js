@@ -24,10 +24,10 @@ function roulette() {
         currentSelection.classList.remove('selected');
     }
     const people = document.getElementById('people-list').querySelectorAll('li');
-
+    numCycles = document.getElementById("animation-speed-input").value
     goButton.disabled = true;
     playDrumRoll();
-    runRouletteAnimation(people, 0, finalSelection, 25);
+    runRouletteAnimation(people, 0, finalSelection, numCycles);
 }
 
 const goButton = document.querySelector('#go-button');
