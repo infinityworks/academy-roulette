@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        link(rel='stylesheet' href='/main.css')
+        meta(charset="utf-8")
+        title="IW Academy Roulette"
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+    body
+        header
+            div(class='header__left') 
+                img(src='iw_logo.png')
+                img(class='app-logo' src='app_logo.png')
+            div(class='header__right') 
+                div(id='theme-button' class='theme-button noselect')
+                    span(id='dark' class='active') I 
+                    span \ 
+                    span(id='light') W 
+                    
+        div(class='content')
+            div(class='content-body center-text')
+                h1(class='error_message') There was an error loading people.txt
+                    
+            button(id="go-button" class="hide")
+        
+        script(src='/main.js')

@@ -190,6 +190,15 @@ header>div {
     text-align: center;
 }
 
+
+.error_message {
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
 #animation-speed-input{
     margin: auto;
     display: block;
