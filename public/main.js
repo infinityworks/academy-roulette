@@ -26,7 +26,7 @@ function roulette() {
     const people = document.getElementById('people-list').querySelectorAll('li');
     numCycles = document.getElementById("animation-speed-input").value
     goButton.disabled = true;
-    playDrumRoll();
+    playHonk();
     runRouletteAnimation(people, 0, finalSelection, numCycles);
 }
 
@@ -41,6 +41,14 @@ playDrumRoll = function() {
 
     audio.load()
     audio.loop = false;
+    audio.play();
+}
+
+playHonk = function () {
+    const audio = document.getElementById("honk1");
+
+    audio.load()
+    audio.loop = true;
     audio.play();
 }
 
